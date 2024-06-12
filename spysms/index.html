@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .file-button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">APK Downloader</h1>
+        <div id="file-list" class="text-center">
+            <!-- JavaScript will dynamically populate this list -->
+        </div>
+    </div>
+
+    <script>
+        // Array containing the filenames
+        const files = [
+            "YouTuube-v1.apk",
+            // Add more filenames as needed
+        ];
+
+        // Function to dynamically populate the list
+        function populateFileList() {
+            const fileList = document.getElementById('file-list');
+
+            files.forEach(filename => {
+                const downloadButton = document.createElement('a');
+                downloadButton.textContent = filename;
+                downloadButton.href = filename;
+                downloadButton.download = filename;
+                downloadButton.className = 'btn btn-primary file-button';
+                fileList.appendChild(downloadButton);
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = populateFileList;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
